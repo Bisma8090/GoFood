@@ -130,18 +130,22 @@ router.post('/getlocation', async (req, res) => {
 
     }
 })
-router.post('/foodData', async (req, res) => {
-    try {
-        // console.log( JSON.stringify(global.foodData))
-        // const userId = req.user.id;
-        // await database.listCollections({name:"food_items"}).find({});
-        res.send([global.foodData, global.foodCategory])
-    } catch (error) {
-        console.error(error.message)
-        res.send("Server Error")
+const mongoose = require('mongoose'); // ensure ye upar hai file ke start me
 
-    }
-})
+router.get('/foodData', async (req, res) => {
+  try {
+    const foodData = await mongoose.connection.db.collection("food_items").find({}).toArray();
+    const foodCategory = await mongoose.connection.db.collection("Categories").find({}).toArray();
+    res.json([foodData, foodCategory]);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+
+
+
 
 router.post('/orderData', async (req, res) => {
   try {
