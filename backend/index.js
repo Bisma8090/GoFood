@@ -1,28 +1,31 @@
 const express = require('express');
 const app = express();
-const port = 5000;
 const mongoDB = require('./db');
+const cors = require('cors');
 
-// CORS
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
-  res.header("Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
+// Use dynamic port from Railway (or 5000 for local dev)
+const port = process.env.PORT || 5000;
+
+// ✅ Use CORS properly
+app.use(cors({
+  origin: ["http://localhost:3000", "https://your-frontend.vercel.app"], // allow local + vercel frontend
+  credentials: true
+}));
+
 app.use(express.json());
 
-// DB Connect
+// Connect DB
 mongoDB();
 
+// Test route
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.send('Hello World! Backend is running 🚀');
 });
 
 // Routes
 app.use('/api/auth', require('./Routes/Auth'));
 
+// Start server
 app.listen(port, () => {
-  console.log(`🚀 Server running on http://localhost:${port}`)
+  console.log(`🚀 Server running on port ${port}`);
 });

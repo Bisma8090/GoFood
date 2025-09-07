@@ -29,7 +29,7 @@ export default function Cart() {
 }));
 
     try {
-      let response = await fetch("http://localhost:5000/api/auth/orderData", {
+      let response = await fetch("https://your-backend.up.railway.app/api/auth/orderData", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

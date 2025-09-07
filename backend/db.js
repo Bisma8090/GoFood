@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const mongoURI = "mongodb+srv://bismaarshad8090_db_user:A3KYVYucQtkU3IFb@cluster0.kihhkzt.mongodb.net/gofood?retryWrites=true&w=majority&appName=Cluster0";
+const mongoURI = process.env.MONGO_URI; // set in Railway Environment Variables
 
 const mongoDB = async () => {
   try {
@@ -18,6 +18,7 @@ const mongoDB = async () => {
 
   } catch (err) {
     console.error("❌ MongoDB Connection Error:", err);
+    process.exit(1); // exit if DB fails
   }
 };
 
