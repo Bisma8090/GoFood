@@ -12,7 +12,7 @@ export default function Home() {
   // Fetch food items and categories from backend
   const loadFoodItems = async () => {
     try {
-      let response = await fetch("https://gofood-backend-production-17d8.up.railway.app/api/auth/foodData");
+      let response = await fetch("https://intuitive-creativity-production.up.railway.app/api/auth/foodData");
       response = await response.json();
 
       setFoodItems(response[0] || []);

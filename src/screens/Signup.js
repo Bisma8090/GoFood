@@ -36,7 +36,7 @@ export default function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("https://gofood-backend-production-17d8.up.railway.app/api/auth/createuser", {
+    const response = await fetch("https://intuitive-creativity-production.up.railway.app/api/auth/createuser", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

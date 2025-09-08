@@ -29,7 +29,7 @@ export default function Cart() {
 }));
 
     try {
-      let response = await fetch("https://gofood-backend-production-17d8.up.railway.app/api/auth/orderData", {
+      let response = await fetch("https://intuitive-creativity-production.up.railway.app/api/auth/orderData", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

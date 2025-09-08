@@ -8,7 +8,7 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("https://gofood-backend-production-17d8.up.railway.app/api/auth/login", {
+    const response = await fetch("https://intuitive-creativity-production.up.railway.app/api/auth/login", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

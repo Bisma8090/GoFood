@@ -10,7 +10,7 @@ export default function MyOrder() {
     if (!email) return;
 
     try {
-      const res = await fetch("https://gofood-backend-production-17d8.up.railway.app/api/auth/myOrderData", {
+      const res = await fetch("https://intuitive-creativity-production.up.railway.app/api/auth/myOrderData", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email })
