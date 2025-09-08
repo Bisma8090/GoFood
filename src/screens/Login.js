@@ -10,7 +10,7 @@ export default function Login() {
     e.preventDefault();
     const response = await fetch("https://intuitive-creativity-production.up.railway.app/api/auth/login", {
       method: 'POST',
-      headers: {
+      headers: {     
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({ email: credentials.email, password: credentials.password })
