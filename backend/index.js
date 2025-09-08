@@ -8,7 +8,7 @@ const port = process.env.PORT || 5000;
 
 // ✅ Use CORS properly
 app.use(cors({
-  origin: ["http://localhost:3000", "https://go-food-xrm3.vercel.app/"], // allow local + vercel frontend
+  origin: ["http://localhost:3000", "https://go-food-xrm3.vercel.app"], // allow local + vercel frontend
   credentials: true
 }));
 
